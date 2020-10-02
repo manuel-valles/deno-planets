@@ -1,10 +1,20 @@
 import { join } from "https://deno.land/std/path/mod.ts";
+import { BufReader } from 'https://deno.land/std/io/mod.ts';
+import { parse } from 'https://deno.land/std/encoding/csv.ts';
 
-const readFile = async (fileName: string, folder?: string): Promise<void> => {
-    const path = folder ? join(folder, fileName) : fileName
-    const data: string = await Deno.readTextFile(path);
-    console.log(data);
+const loadPlanetsData = async (): Promise<void> => {
+    const path: string = join('csv_files', 'cumulative_2020.10.02_10.54.49.csv')
+
+    const file: Deno.File = await Deno.open(path)
+    const bufReader: BufReader = new BufReader(file)
+    const result: unknown[] = await parse(bufReader, {
+        skipFirstRow: true,
+        comment: '#'
+    })
+
+    Deno.close(file.rid)
+
+    console.log(result)
 }
 
-await readFile('hello.txt')
-await readFile('hello.txt', 'text_files')
+await loadPlanetsData()
