@@ -15,3 +15,7 @@ A starting point for using **Deno File IO**
   - Buffer documentation: https://doc.deno.land/https/deno.land/std@0.72.0/io/mod.ts#BufReader
 - encodingModule: https://deno.land/std@0.72.0/encoding/csv.ts
   - https://doc.deno.land/https/deno.land/std@0.72.0/encoding/csv.ts
+- lodashModule(ES):
+  - Deno Third Party Modules: https://deno.land/x/lodash@4.17.15-es/lodash.js
+  - Lodash Library: https://github.com/lodash/lodash/blob/4.17.15-es/lodash.js
+  - Lodash Documentation: https://lodash.com/docs/4.17.15
